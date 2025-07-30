@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ace Nodes</title>
+  <title>AceNodes</title>
   <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css" />
@@ -12,14 +12,14 @@
   <header>
     <div class="container header-container">
       <div class="branding">
-        <img src="media/ace.png" alt="Ace Nodes Logo" class="site-logo" />
-        <span class="site-title">Ace Nodes</span>
+        <img src="media/ace.png" alt="AceNodes Logo" class="site-logo" />
+        <span class="site-title gradient-text">AceNodes</span>
       </div>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
           <li><a href="#plans">Plans</a></li>
+          <li><a href="#addons">Add‑Ons</a></li>
           <li><a href="https://discord.gg/xYRFaFgysk">Discord</a></li>
         </ul>
       </nav>
@@ -28,38 +28,12 @@
 
   <section class="hero" id="about">
     <div class="container">
-      <h2>Welcome to Ace Nodes! 👋</h2>
-      <p>
-        Your ultimate destination for lifetime paid and reliable free hosting.
-        Since 2024, we’ve been redefining what hosting means—giving you permanent
-        access to powerful servers with zero compromises. We focus on quality,
-        rather than the price.
-      </p>
-      <a href="#plans" class="btn">View Hosting Plans</a>
-    </div>
-  </section>
-
-  <section class="features" id="features">
-    <div class="container">
-      <h2>Why Choose Ace Nodes?</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <h3><i class="fa fa-shield"></i> DDoS Protection</h3>
-          <p>We shield your servers from malicious attacks with powerful anti-DDoS infrastructure.</p>
-        </div>
-        <div class="feature-item">
-          <h3><i class="fa fa-bolt"></i> High-Performance Servers</h3>
-          <p>Get blazing-fast speeds and zero lag with top-tier hardware and network performance.</p>
-        </div>
-        <div class="feature-item">
-          <h3><i class="fa fa-clock-o"></i> 99.9% Uptime Guarantee</h3>
-          <p>Your game servers stay online and accessible—backed by our near-perfect uptime record.</p>
-        </div>
-        <div class="feature-item">
-          <h3><i class="fa fa-phone"></i> 24/7 Customer Support</h3>
-          <p>We're always here for you—day or night—ready to resolve any issues quickly and reliably.</p>
-        </div>
+      <h2 class="hero-title gradient-text">AceNodes</h2>
+      <p class="hero-subtitle">Your ultimate destination for professional, high-performance, affordable hosting.</p>
+      <div class="hero-blurb">
+        We’ve been powering Minecraft servers and hosting since 2024—delivering top-tier reliability, blazing speed, and unbeatable value. Experience hosting that’s built on quality, performance, and affordability.
       </div>
+      <a href="#plans" class="btn">View Hosting Plans</a>
     </div>
   </section>
 
@@ -67,29 +41,120 @@
     <div class="container">
       <h2>Our Hosting Plans</h2>
       <div class="plans-grid">
+        <!-- Loop through each plan -->
         <div class="plan-card">
-          <h3>Sloth Plan</h3>
-          <p>8GB DDR5 RAM</p>
-          <p>300% CPU</p>
-          <p>30GB NVMe SSD</p>
-          <p class="price">€9.99 / lifetime</p>
-          <a href="https://deploy.acenodes.co.uk" class="btn">Buy Now</a>
+          <h3>AceLite</h3>
+          <p>₥ $4.99 / month</p>
+          <p>1 GB RAM</p>
+          <p>10 GB SSD</p>
+          <p>1 vCPU • 1 slot</p>
+          <p class="description">First‑timers, test servers</p>
+          <a href="#" class="btn">Choose Plan</a>
         </div>
         <div class="plan-card">
-          <h3>Tiger Plan</h3>
-          <p>16GB DDR5 RAM</p>
-          <p>600% CPU</p>
-          <p>64GB NVMe SSD</p>
-          <p class="price">€16.90 / lifetime</p>
-          <a href="https://deploy.acenodes.co.uk" class="btn">Buy Now</a>
+          <h3>AcePlus</h3>
+          <p>$7.99 / month</p>
+          <p>2 GB RAM</p>
+          <p>20 GB SSD</p>
+          <p>1 vCPU • 2 slots</p>
+          <p class="description">Plugin‑based SMPs, 2–5 friends</p>
+          <a href="#" class="btn">Choose Plan</a>
         </div>
         <div class="plan-card">
-          <h3>Ace Plan</h3>
-          <p>32GB DDR5 RAM</p>
-          <p>800% CPU</p>
-          <p>128GB NVMe SSD</p>
-          <p class="price">€34.90 / lifetime</p>
-          <a href="https://deploy.acenodes.co.uk" class="btn">Buy Now</a>
+          <h3>AceBoost</h3>
+          <p>$11.99 / month</p>
+          <p>4 GB RAM</p>
+          <p>40 GB SSD</p>
+          <p>2 vCPU • 3 slots</p>
+          <p class="description">Growing SMPs, public mini‑servers</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AceEdge</h3>
+          <p>$17.99 / month</p>
+          <p>6 GB RAM</p>
+          <p>60 GB SSD</p>
+          <p>3 vCPU • 5 slots</p>
+          <p class="description">Small modded, survival, or community</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AcePrime</h3>
+          <p>$24.99 / month</p>
+          <p>8 GB RAM</p>
+          <p>80 GB SSD</p>
+          <p>4 vCPU • Unlimited slots</p>
+          <p class="description">Mid‑size servers, 15–30 players</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AceXtreme</h3>
+          <p>$32.99 / month</p>
+          <p>12 GB RAM</p>
+          <p>120 GB SSD</p>
+          <p>4 vCPU • Unlimited slots</p>
+          <p class="description">Modpacks (BetterMC, Pixelmon), events</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AceForge</h3>
+          <p>$42.99 / month</p>
+          <p>16 GB RAM</p>
+          <p>160 GB SSD</p>
+          <p>6 vCPU • Unlimited slots</p>
+          <p class="description">Modded networks, heavy world use</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AceTitan</h3>
+          <p>$59.99 / month</p>
+          <p>24 GB RAM</p>
+          <p>240 GB SSD</p>
+          <p>8 vCPU • Unlimited slots</p>
+          <p class="description">Large networks, streamers, minigames</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+        <div class="plan-card">
+          <h3>AceMaster</h3>
+          <p>$74.99 / month</p>
+          <p>32 GB RAM</p>
+          <p>320 GB SSD</p>
+          <p>10 vCPU • Unlimited slots</p>
+          <p class="description">Pro‑level hosting, businesses, multi‑server</p>
+          <a href="#" class="btn">Choose Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="addons" id="addons">
+    <div class="container">
+      <h2>Add‑On Options</h2>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <h3>Extra 2 GB RAM</h3>
+          <p>+$2.00 / month</p>
+          <p class="tip">Costs you ≈ $0.50 — easy upsell</p>
+        </div>
+        <div class="addon-card">
+          <h3>Extra 10 GB SSD</h3>
+          <p>+$1.00 / month</p>
+          <p class="tip">Great simple upgrade idea</p>
+        </div>
+        <div class="addon-card">
+          <h3>Dedicated IP Address</h3>
+          <p>+$3.00 / month</p>
+          <p class="tip">Premium feature add‑on</p>
+        </div>
+        <div class="addon-card">
+          <h3>Daily Offsite Backups</h3>
+          <p>+$1.50 / month</p>
+          <p class="tip">Ideal for modded servers</p>
+        </div>
+        <div class="addon-card">
+          <h3>Premium Support (24/7)</h3>
+          <p>+$4.99 / month</p>
+          <p class="tip">Discord‑based, minimal effort setup</p>
         </div>
       </div>
     </div>
@@ -97,7 +162,7 @@
 
   <footer id="contact">
     <div class="container">
-      <p>&copy; 2025 Ace Nodes. All rights reserved.</p>
+      <p>&copy; 2025 AceNodes. All rights reserved.</p>
     </div>
   </footer>
 </body>
