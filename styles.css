@@ -1,67 +1,24 @@
-/* Base & Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Space Grotesk',sans-serif; background:#111; color:#eee; line-height:1.6; }
-a { color:#00bcd4; text-decoration:none; }
-.container { width:90%; max-width:1200px; margin:0 auto; }
-
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(120deg, #00bcd4, #ff4081);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero-tagline {
+  font-size: 1.1rem;
+  color: #00bcd4;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: bold;
 }
 
-/* Header */
-header { background:#1a1a1a; padding:20px 0; border-bottom:1px solid #333; }
-.header-container { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; }
-.branding { display:flex; align-items:center; gap:12px; }
-.site-logo { max-width:60px; height:auto; }
-.site-title { font-size:1.6rem; font-weight:600; color:#fff; }
-header nav ul { list-style:none; display:flex; gap:20px; }
-header nav a:hover { text-decoration:underline; }
+.plan-card.popular {
+  border: 2px solid #00bcd4;
+  position: relative;
+}
 
-/* Hero */
-.hero { padding:80px 0; text-align:center; background: linear-gradient(145deg, #242424, #1a1a1a); }
-.hero-title { font-size:3rem; margin-bottom:10px; }
-.hero-subtitle { font-size:1.3rem; margin-bottom:20px; color:#ccc; }
-.hero-blurb { font-size:1.1rem; max-width:700px; margin:0 auto 30px auto; color:#ddd; }
-
-/* Buttons */
-.btn { display:inline-block; padding:14px 28px; background:#00bcd4; color:#111; border-radius:4px; font-weight:600; transition:background 0.3s; }
-.btn:hover { background:#0097a7; }
-
-/* Plans Section */
-.plans { padding:60px 0; background:#121212; text-align:center; }
-.plans h2 { font-size:2.2rem; margin-bottom:40px; }
-.plans-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.plan-card { background:#1e1e1e; padding:30px; border-radius:8px; border:1px solid #333; transition:transform 0.3s ease; }
-.plan-card:hover { transform:scale(1.03); }
-.plan-card h3 { font-size:1.5rem; margin-bottom:15px; color:#00bcd4; }
-.plan-card p { margin:8px 0; color:#ccc; }
-.plan-card .description { font-size:0.95rem; color:#bbb; margin-bottom:15px; }
-.plan-card .btn { margin-top:15px; }
-
-/* Add‑Ons */
-.addons { padding:60px 0; background:#181818; text-align:center; }
-.addons h2 { font-size:2.2rem; margin-bottom:40px; color:#fff; }
-.addons-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-.addon-card { background:#1e1e1e; padding:20px; border-radius:8px; border:1px solid #333; transition:transform 0.3s ease; }
-.addon-card:hover { transform:translateY(-4px); box-shadow:0 4px 10px rgba(0,188,212,0.2); }
-.addon-card h3 { color:#00bcd4; margin-bottom:10px; }
-.addon-card .tip { font-size:0.95rem; color:#ccc; }
-
-/* Footer */
-footer { padding:20px 0; background:#1a1a1a; border-top:1px solid #333; text-align:center; color:#888; }
-
-/* Mobile */
-@media (max-width:768px) {
-  .header-container { flex-direction:column; align-items:flex-start; gap:12px; }
-  header nav ul { flex-direction:column; gap:12px; }
-  .hero-title { font-size:2.2rem; }
-  .hero-subtitle { font-size:1.1rem; }
-  .hero-blurb { font-size:1rem; padding:0 10px; }
-  .plans-grid, .addons-grid { grid-template-columns:1fr; }
-  .btn { width:100%; text-align:center; }
-  .site-logo { max-width:50px; }
-  .site-title { font-size:1.4rem; }
+.badge {
+  display: inline-block;
+  background: #00bcd4;
+  color: #111;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  vertical-align: middle;
 }
