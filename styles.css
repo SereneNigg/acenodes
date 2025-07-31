@@ -64,24 +64,29 @@ header nav a:hover {
   text-decoration: underline;
 }
 
-/* Hero Section */
 .hero {
-  padding: 60px 0;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
   text-align: center;
   background: linear-gradient(145deg, #2b2b2b, #1a1a1a);
 }
+
 .hero h2,
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
 }
+
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 30px;
 }
+
 .btn {
   display: inline-block;
   padding: 12px 25px;
@@ -91,9 +96,11 @@ header nav a:hover {
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
+
 .btn:hover {
   background-color: #0097a7;
 }
+
 
 /* Features Section */
 .features {
