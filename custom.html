@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plans & Builder - AceNodes</title>
+    <link href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Main site styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Plan builder specific styles -->
+    <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="branding">
+                <img src="media/ace.png" alt="Ace Nodes Logo" class="site-logo" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="tos.html">Terms</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="plans.html">Plans</a></li>
+                    <li><a href="https://discord.gg/xYRFaFgysk">Discord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Custom Server Builder -->
+        <section id="custom-builder" class="content-section">
+            <h1>Build Your Custom Server</h1>
+            <p class="subtitle">Design a server that fits your exact needs and see the price update in real-time.</p>
+
+            <div class="billing-cycle">
+                <h3>Choose Billing Cycle (and Save!)</h3>
+                <div class="cycle-options">
+                    <input type="radio" name="billing-cycle" id="cycle-monthly" value="monthly" checked><label for="cycle-monthly">Monthly</label>
+                    <input type="radio" name="billing-cycle" id="cycle-quarterly" value="quarterly"><label for="cycle-quarterly">3 Months (5% off)</label>
+                    <input type="radio" name="billing-cycle" id="cycle-semiannually" value="semiannually"><label for="cycle-semiannually">6 Months (10% off)</label>
+                    <input type="radio" name="billing-cycle" id="cycle-annually" value="annually"><label for="cycle-annually">1 Year (20% off)</label>
+                </div>
+            </div>
+
+            <div class="options-container">
+                <div class="option"><label for="cpu-vcores">CPU vCores: <span id="cpu-vcores-value">1</span></label><input type="range" id="cpu-vcores" min="1" max="8" value="1" class="slider"></div>
+                <div class="option"><label for="memory">Memory (GB): <span id="memory-value">1</span></label><input type="range" id="memory" min="1" max="32" value="1" class="slider"></div>
+                <div class="option"><label for="storage">Storage (GB): <span id="storage-value">1</span></label><input type="range" id="storage" min="1" max="64" value="1" class="slider"></div>
+                <div class="option"><label for="extra-database">Extra Databases: <span id="extra-database-value">0</span></label><input type="range" id="extra-database" min="0" max="3" value="0" class="slider"></div>
+                <div class="option"><label for="extra-backups">Extra Backups: <span id="extra-backups-value">0</span></label><input type="range" id="extra-backups" min="0" max="5" value="0" class="slider"></div>
+                <div class="option"><label for="extra-ports">Extra Ports: <span id="extra-ports-value">0</span></label><input type="range" id="extra-ports" min="0" max="5" value="0" class="slider"></div>
+            </div>
+            
+            <div class="user-details">
+                <label for="dezerx-username-builder">DezerX Dashboard Username</label>
+                <input type="text" id="dezerx-username-builder" placeholder="Your username for server delivery...">
+            </div>
+            <div class="payment-info">
+                <p>After requesting, we will contact you via email to finalize the details and process your payment. Your server will be deployed upon successful payment via PayPal or Stripe.</p>
+            </div>
+
+            <div class="total-cost"><h2>Total Cost: <span id="total-cost-display">$4.10 / Monthly</span></h2></div>
+            <!-- **FIXED:** Added class="btn" to both buttons -->
+            <button id="request-plan-btn" class="btn">Request Plan</button>
+        </section>
+
+        <!-- Section 2: Server Renewal -->
+        <section id="renewal-section" class="content-section">
+            <h2>Renew An Existing Server</h2>
+            <p class="subtitle">Already have a server with us? Enter your details below to request a renewal.</p>
+            <div class="renewal-inputs">
+                <div class="user-details"><label for="dezerx-username-renewal">DezerX Dashboard Username</label><input type="text" id="dezerx-username-renewal" placeholder="Your account username..."></div>
+                <div class="user-details"><label for="server-name">Server Name or ID</label><input type="text" id="server-name" placeholder="The name or ID of the server to renew..."></div>
+            </div>
+            <button id="request-renewal-btn" class="btn">Request Renewal</button>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="builder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Confirm Your Request</h2>
+            <p>To finalize your request, please copy the text below and send it in an email to <strong>manager@acenodes.co.uk</strong>.</p>
+            <p class="modal-instruction">Keep an eye on your email for our reply with payment instructions!</p>
+            <div class="email-body-container">
+                <textarea id="builder-email-body" readonly></textarea>
+                <button id="builder-copy-btn">Copy to Clipboard</button>
+                <span class="copy-feedback"></span>
+            </div>
+        </div>
+    </div>
+    <div id="renewal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Confirm Your Renewal</h2>
+            <p>Please copy the text below and send it in an email to <strong>manager@acenodes.co.uk</strong> to renew your server.</p>
+             <p class="modal-instruction">We will reply to your email to confirm the renewal and process payment.</p>
+            <div class="email-body-container">
+                <textarea id="renewal-email-body" readonly></textarea>
+                <button id="renewal-copy-btn">Copy to Clipboard</button>
+                <span class="copy-feedback"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact"><div class="container"><p>© 2025 AceNodes. All rights reserved.</p></div></footer>
+    <script src="script.js"></script>
+</body>
+</html>

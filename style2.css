@@ -1,0 +1,81 @@
+/* Main content sections on the page */
+.content-section {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #222;
+}
+
+.content-section h1, .content-section h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #6A82FB, #FC5C7D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.content-section .subtitle {
+    color: #aaa;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Billing Cycle */
+.billing-cycle { margin-bottom: 2.5rem; }
+.billing-cycle h3 { margin-bottom: 1rem; color: #ddd; }
+.cycle-options { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.cycle-options label { padding: 0.8rem 1.2rem; border: 1px solid #444; border-radius: 5px; cursor: pointer; transition: all 0.2s ease-in-out; }
+.cycle-options input[type="radio"] { display: none; }
+.cycle-options input[type="radio"]:checked + label, .cycle-options label.selected { background-color: #FC5C7D; border-color: #FC5C7D; color: #111; font-weight: bold; }
+
+/* Sliders */
+.options-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 1rem; text-align: left; }
+.option { display: flex; flex-direction: column; }
+.option label { margin-bottom: 0.75rem; font-size: 1.1rem; color: #ddd; }
+.slider { width: 100%; cursor: pointer; }
+
+/* User inputs and info */
+.user-details { text-align: left; margin-bottom: 1rem; }
+.user-details label { display: block; margin-bottom: 0.75rem; font-size: 1.1rem; color: #ddd; }
+input[type="text"] { width: 100%; padding: 0.8rem; border-radius: 5px; background: #222; color: #fff; border: 1px solid #444; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; box-sizing: border-box; }
+.payment-info { background-color: rgba(106, 130, 251, 0.1); border: 1px solid #6A82FB; padding: 1rem; border-radius: 5px; margin: 2rem 0; color: #ccc; text-align: left; }
+.total-cost h2 { font-size: 2rem; color: #FC5C7D; margin-bottom: 1.5rem; }
+
+/* Buttons */
+.content-section .btn {
+    display: inline-block; /* Ensures button styling applies correctly */
+    margin-top: 1rem;
+}
+
+/* Renewal Section */
+#renewal-section { border-top: 2px solid #333; }
+.renewal-inputs { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+
+/* Modals */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
+.modal-content { background-color: #222; margin: 10% auto; padding: 25px; border: 1px solid #555; width: 90%; max-width: 600px; border-radius: 10px; position: relative; text-align: left; animation: fadeIn 0.3s; }
+.close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+
+/* **FIXED:** Specific styling for modal text */
+.modal-content h2 { color: #FC5C7D; margin-top: 0; }
+.modal-content p { color: #ccc; line-height: 1.6; }
+.modal-content p strong { color: #fff; }
+
+.modal-instruction { background-color: #333; padding: 12px; border-radius: 5px; margin: 1.5rem 0; color: #eee; border-left: 3px solid #6A82FB; }
+.email-body-container { position: relative; }
+textarea { width: 100%; height: 250px; background: #111; color: #fff; border: 1px solid #444; border-radius: 5px; padding: 10px; box-sizing: border-box; resize: none; font-family: monospace; }
+.email-body-container button { position: absolute; bottom: 15px; right: 15px; background-color: #555; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
+.email-body-container button:hover { background-color: #666; }
+.copy-feedback { position: absolute; bottom: 18px; right: 160px; color: #FC5C7D; opacity: 0; transition: opacity 0.5s; }
+
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+@media (max-width: 768px) {
+    .options-container { grid-template-columns: 1fr; }
+    .content-section { padding: 1.5rem; }
+}
