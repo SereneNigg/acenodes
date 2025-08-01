@@ -19,29 +19,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const allModals = document.querySelectorAll('.modal');
     const allCloseButtons = document.querySelectorAll('.close-button');
 
-    // --- Pricing & Discounts ---
-    const pricing = { cpu: 3.5, memory: 1, storage: 0.5, extras: 0.1 };
+    // --- FINAL Pricing Structure ---
+    const pricing = {
+        cpu: 1.49,
+        memory: 0.80,
+        // **FIXED:** Price per 10GB of storage
+        storage_per_10gb: 0.30,
+        extras: 0.1
+    };
+
     const discounts = { monthly: 0, quarterly: 0.05, semiannually: 0.10, annually: 0.20 };
     const cycleMonths = { monthly: 1, quarterly: 3, semiannually: 6, annually: 12 };
 
-    // --- Core Calculation Function ---
+    // --- Core Calculation & Display Function ---
     function calculateTotalCost() {
+        // **FIXED:** Implemented the correct disk pricing logic
+        const storageCost = (parseInt(document.getElementById('storage').value) / 10) * pricing.storage_per_10gb;
+
         const baseMonthlyCost = (parseInt(document.getElementById('cpu-vcores').value) * pricing.cpu) +
                                 (parseInt(document.getElementById('memory').value) * pricing.memory) +
-                                (parseInt(document.getElementById('storage').value) * pricing.storage) +
+                                storageCost + // Use the new storage cost variable
                                 ((parseInt(document.getElementById('extra-database').value) + parseInt(document.getElementById('extra-backups').value) + parseInt(document.getElementById('extra-ports').value)) * pricing.extras);
 
         const selectedCycle = document.querySelector('input[name="billing-cycle"]:checked').value;
-        const months = cycleMonths[selectedCycle];
         const discount = discounts[selectedCycle];
+        const months = cycleMonths[selectedCycle];
+
+        let displayString = '';
+
+        if (selectedCycle === 'monthly') {
+            displayString = `$${baseMonthlyCost.toFixed(2)} / month`;
+        } else {
+            const discountedMonthlyPrice = baseMonthlyCost * (1 - discount);
+            const totalPeriodPrice = discountedMonthlyPrice * months;
+            displayString = `<strong>$${discountedMonthlyPrice.toFixed(2)}</strong> / month <span class="total-price">($${totalPeriodPrice.toFixed(2)} total)</span>`;
+        }
         
-        const totalCost = (baseMonthlyCost * months) * (1 - discount);
-        const cycleText = selectedCycle.charAt(0).toUpperCase() + selectedCycle.slice(1).replace('ly', '');
-        
-        totalCostDisplay.textContent = `$${totalCost.toFixed(2)} / ${cycleText}`;
+        totalCostDisplay.innerHTML = displayString;
     }
 
-    // --- Event Listeners for Builder ---
+    // --- Event Listeners (No changes from before) ---
     sliders.forEach(slider => {
         const valueSpan = document.getElementById(`${slider.id}-value`);
         if (valueSpan) {
@@ -71,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const selectedCycle = document.querySelector('input[name="billing-cycle"]:checked').value;
         const cycleText = selectedCycle.charAt(0).toUpperCase() + selectedCycle.slice(1);
-
+        
         const emailBody = `Hello,
 I would like to request a custom server.
 
@@ -88,37 +105,33 @@ DezerX Dashboard Username: ${username}
 - Extra Ports: ${document.getElementById('extra-ports').value}
 
 -----------------------------
-Total Quoted Cost: ${totalCostDisplay.textContent}`;
+Total Quoted Cost: ${totalCostDisplay.innerText}`;
         
         builderEmailBody.value = emailBody;
         builderModal.style.display = 'block';
     });
-
-    // --- Event Listeners for Renewal ---
+    
+    // Renewal Listeners
     requestRenewalBtn.addEventListener('click', () => {
         const username = renewalUsernameInput.value.trim();
         const serverName = serverNameInput.value.trim();
-
         if (!username || !serverName) {
             alert('Please fill in both your username and the server name/ID.');
             return;
         }
-
         const emailBody = `Hello,
 I would like to request a renewal for my existing server.
 
 --- Renewal Details ---
 - DezerX Dashboard Username: ${username}
 - Server Name or ID to Renew: ${serverName}`;
-
         renewalEmailBody.value = emailBody;
         renewalModal.style.display = 'block';
     });
 
-    // --- General Modal & Copy Logic ---
+    // Modal & Copy Logic
     allCloseButtons.forEach(button => button.onclick = () => allModals.forEach(modal => modal.style.display = 'none'));
     window.onclick = (event) => allModals.forEach(modal => { if (event.target == modal) modal.style.display = 'none'; });
-
     function setupCopyButton(button, textarea, feedbackContainer) {
         button.addEventListener('click', () => {
             navigator.clipboard.writeText(textarea.value).then(() => {
@@ -129,11 +142,10 @@ I would like to request a renewal for my existing server.
             });
         });
     }
-
     setupCopyButton(builderCopyBtn, builderEmailBody, builderModal);
     setupCopyButton(renewalCopyBtn, renewalEmailBody, renewalModal);
     
-    // --- Initial State Setup ---
+    // Initial State Setup
     document.querySelector('label[for="cycle-monthly"]').classList.add('selected');
     calculateTotalCost();
 });
