@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pricing = {
         cpu: 1.49,      // $1.49 per vCPU
         memory: 1.2,   // $0.80 per 1GB RAM
-        storage: 0.03,  // $0.03 per 1GB of storage
-        extras: 0.1
+        storage: 0.05,  // $0.03 per 1GB of storage
+        extras: 0.2
     };
 
     const discounts = { monthly: 0, quarterly: 0.05, semiannually: 0.10, annually: 0.20 };
