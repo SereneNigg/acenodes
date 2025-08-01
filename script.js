@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const allModals = document.querySelectorAll('.modal');
     const allCloseButtons = document.querySelectorAll('.close-button');
 
-    // --- FINAL Pricing Structure ---
+    // --- REVERTED Pricing Structure ---
     const pricing = {
         cpu: 1.49,
         memory: 0.80,
-        // **FIXED:** Price per 10GB of storage
-        storage_per_10gb: 0.30,
+        // **REVERTED:** Price is now $0.03 per 1GB of storage
+        storage: 0.03,
         extras: 0.1
     };
 
@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Core Calculation & Display Function ---
     function calculateTotalCost() {
-        // **FIXED:** Implemented the correct disk pricing logic
-        const storageCost = (parseInt(document.getElementById('storage').value) / 10) * pricing.storage_per_10gb;
+        // **REVERTED:** Using the simpler storage calculation
+        const storageCost = parseInt(document.getElementById('storage').value) * pricing.storage;
 
         const baseMonthlyCost = (parseInt(document.getElementById('cpu-vcores').value) * pricing.cpu) +
                                 (parseInt(document.getElementById('memory').value) * pricing.memory) +
-                                storageCost + // Use the new storage cost variable
+                                storageCost + // Use the reverted storage cost
                                 ((parseInt(document.getElementById('extra-database').value) + parseInt(document.getElementById('extra-backups').value) + parseInt(document.getElementById('extra-ports').value)) * pricing.extras);
 
         const selectedCycle = document.querySelector('input[name="billing-cycle"]:checked').value;
