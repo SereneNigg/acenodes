@@ -19,12 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const allModals = document.querySelectorAll('.modal');
     const allCloseButtons = document.querySelectorAll('.close-button');
 
-    // --- REVERTED Pricing Structure ---
+    // --- **FINAL, VERIFIED PRICING** ---
     const pricing = {
-        cpu: 1.49,
-        memory: 0.80,
-        // **REVERTED:** Price is now $0.03 per 1GB of storage
-        storage: 0.03,
+        cpu: 1.49,      // $1.49 per vCPU
+        memory: 0.80,   // $0.80 per 1GB RAM
+        storage: 0.03,  // $0.03 per 1GB of storage
         extras: 0.1
     };
 
@@ -33,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Core Calculation & Display Function ---
     function calculateTotalCost() {
-        // **REVERTED:** Using the simpler storage calculation
+        // This calculation now uses the final, correct pricing values.
         const storageCost = parseInt(document.getElementById('storage').value) * pricing.storage;
 
         const baseMonthlyCost = (parseInt(document.getElementById('cpu-vcores').value) * pricing.cpu) +
                                 (parseInt(document.getElementById('memory').value) * pricing.memory) +
-                                storageCost + // Use the reverted storage cost
+                                storageCost +
                                 ((parseInt(document.getElementById('extra-database').value) + parseInt(document.getElementById('extra-backups').value) + parseInt(document.getElementById('extra-ports').value)) * pricing.extras);
 
         const selectedCycle = document.querySelector('input[name="billing-cycle"]:checked').value;
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         totalCostDisplay.innerHTML = displayString;
     }
 
-    // --- Event Listeners (No changes from before) ---
+    // --- Event Listeners (No changes needed) ---
     sliders.forEach(slider => {
         const valueSpan = document.getElementById(`${slider.id}-value`);
         if (valueSpan) {
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cycleText = selectedCycle.charAt(0).toUpperCase() + selectedCycle.slice(1);
         
         const emailBody = `Hello,
-I would like to request a custom server.
+I would like to request a custom server on Ace Nodes
 
 --- Account Details ---
 DezerX Dashboard Username: ${username}
