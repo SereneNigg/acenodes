@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- **FINAL, VERIFIED PRICING** ---
     const pricing = {
         cpu: 1.49,      // $1.49 per vCPU
-        memory: 0.80,   // $0.80 per 1GB RAM
+        memory: 1.2,   // $0.80 per 1GB RAM
         storage: 0.03,  // $0.03 per 1GB of storage
         extras: 0.1
     };
